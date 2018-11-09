@@ -1,13 +1,13 @@
 import React from 'react';
 
 import NavBar from '../share/components/NavBar';
-import HomeContainer from './containers/HomeContainer';
+import HomePage from './components/HomePage';
 
 const Home = () => {
   return (
     <div>
       <NavBar hasBackground={false} />
-      <HomeContainer />
+      <HomePage />
     </div>
   )
 }

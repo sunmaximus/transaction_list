@@ -3,6 +3,8 @@ const cors = require('cors')
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser')
 
+const data = require('./data.json');
+
 const app = express();
 
 app.use(cors())
@@ -15,11 +17,33 @@ app.get('/api', (req, res) => {
   });
 });
 
+// app.get('/api/get/data',(req, res) => {
+//   let transactions = data.transactions
+//   console.log(data);
 
+//   res.json({
+//     transactions
+//   });
+// });
+
+app.get('/api/get/data', verifyToken, (req, res) => {  
+  jwt.verify(req.token, 'secretkey', (err, authData) => {
+    console.log(authData)
+    if(err) {
+      console.log(err)
+      res.sendStatus(403);
+    } else {
+      let transactions = data.transactions
+      res.json({
+        transactions
+      });
+    }
+  });
+});
 
 app.post('/api/posts', verifyToken, (req, res) => {  
   jwt.verify(req.token, 'secretkey', (err, authData) => {
-    console.log(req.token)
+    console.log(authData)
     if(err) {
       console.log(err)
       res.sendStatus(403);
@@ -34,31 +58,8 @@ app.post('/api/posts', verifyToken, (req, res) => {
 
 app.post('/api/login', (req, res) => {
   let user = req.body;
-  console.log(user)
-  const regularUser = {
-    firstName: 'Tom',
-    lastName: 'Hank',
-    authenticationLevel: 'user',
-    birthDay: 'July 9, 1956',
-    descriptions: 'The Hulk is a fictional superhero appearing in American comic books published by Marvel Comics. Created by writer Stan Lee and artist Jack Kirby, the character first appeared in the debut issue of The Incredible Hulk.'
-  }
-  
-  const adminUser = {
-    firstName: 'Tom',
-    lastName: 'Hardy',
-    authenticationLevel: 'admin',
-    birthDay: 'September 15, 1977',
-    users: [{ name: 'Venom' }, { name: 'Carnage' }, { name: 'Brody' }, { name: 'Peter Parker' }]
-  }
-
-  if (user.username === 'admin') {
-    user = { ...user, ...adminUser }
-  } else {
-    user = { ...user, ...regularUser }
-  }
-
-  console.log(user)
   jwt.sign(user, 'secretkey', { expiresIn }, (err, token) => {
+    console.log(user, token)
     res.json({
       token
     });
