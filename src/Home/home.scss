@@ -1,0 +1,26 @@
+.home {
+  &__container {
+    // height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 125px 0 125px 0;
+  }
+
+  &__filter-section {
+    flex: 4;
+    background: lavender;
+    height: 100%;
+  }
+
+  &__transactions-section {
+    flex: 16;
+    background: lightblue;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 20px 20px;
+  }
+}
