@@ -1,0 +1,35 @@
+.footer {
+  &__container {
+    background: #14263B;
+    color: #868e96;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      color: currentColor;
+    }
+  }
+
+  &__copyrights {
+    font-size: .9rem;
+  }
+}
+
+.icon-footer {
+  &__container {
+    margin-top: 20px;
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  &__icon {
+    height: 100%;
+    cursor: pointer;
+  }
+}

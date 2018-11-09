@@ -1,0 +1,72 @@
+.home__container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home__edit-text, .home__edit-textarea {
+  margin: 5px 0px;
+  width: 100%;
+  font-size: 1em;
+  background: #fff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.87);
+  box-sizing: border-box;
+}
+
+.home__edit-textarea {
+  height: 100px;
+}
+
+.home__edit-admin-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 275px;
+}
+
+.home__edit-admin-container h4 {
+  margin: 0;
+}
+
+.home__edit-admin-add-user {
+  border-radius: 4px;
+  margin: 5px 0px;
+  width: 100%;
+  font-size: 1em;
+  background: #fff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.87);
+  box-sizing: border-box;
+  height: 40px;
+  width: 300px;
+  margin: 0px 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: .4rem .4rem;
+}
+
+.home__admin-edit-cell {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.home__edit-icon {
+  color: #555;
+  cursor: pointer;
+}
+
+.home__edit-icon:hover {
+  transform: scale(1.5);
+  transition: opacity 0.2s, color 0.2s, transform 0.2s;
+  color: #000;
+}
+
+.home__table {
+  width: 250px !important;
+}

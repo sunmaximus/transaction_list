@@ -1,0 +1,16 @@
+{
+  "name": "node_jwt_auth_api",
+  "version": "1.0.0",
+  "description": "Simple JWT example",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0"
+  }
+}
