@@ -15,9 +15,13 @@ app.get('/api', (req, res) => {
   });
 });
 
+
+
 app.post('/api/posts', verifyToken, (req, res) => {  
   jwt.verify(req.token, 'secretkey', (err, authData) => {
+    console.log(req.token)
     if(err) {
+      console.log(err)
       res.sendStatus(403);
     } else {
       res.json({
