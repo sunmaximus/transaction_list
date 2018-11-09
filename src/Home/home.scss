@@ -1,6 +1,5 @@
 .home {
   &__container {
-    // height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,14 +9,12 @@
 
   &__filter-section {
     flex: 4;
-    background: lavender;
-    height: 100%;
+    display: flex;
   }
 
   &__transactions-section {
     flex: 16;
     background: lightblue;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

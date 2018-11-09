@@ -1,0 +1,27 @@
+.filter {
+  &__container {
+    width: 100%;
+    padding: 0 10px 0 10px;
+  }
+
+  &__account-name {
+    display: flex;
+    flex-direction: column;
+    background: lightgray;
+    margin: 0 0 30px 0;
+    padding: 15px;
+    border-radius: 3px;
+  }
+
+  &__transaction-type {
+    display: flex;
+    flex-direction: column;
+    background: lightgray;
+    padding: 15px;
+    border-radius: 3px;
+  }
+
+  &__check-box {
+    margin: 5px 0 5px 0;
+  }
+}
