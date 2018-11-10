@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import { Icon, Menu, Table } from 'semantic-ui-react'
 import _ from 'lodash';
 
@@ -78,12 +80,13 @@ class Transactions extends Component {
       return (
         <Table.Row key={customer.account}>
           {/* <Table.Cell>{prevPage + index}</Table.Cell> */}
-          <Table.Cell>{customer.account}</Table.Cell>
+          <Table.Cell><Link to={`/transaction/${customer.account}`}>{customer.account}</Link></Table.Cell>
           <Table.Cell>{`${customer.accountName}`}</Table.Cell>
           <Table.Cell>{customer.currencySymbol}</Table.Cell>
           <Table.Cell>{customer.amount}</Table.Cell>
           <Table.Cell>{customer.transactionType}</Table.Cell>
-        </Table.Row>)
+        </Table.Row>
+       )
     });
   }
 

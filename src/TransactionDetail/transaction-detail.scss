@@ -1,0 +1,21 @@
+.transaction-detail {
+  &__container {
+    margin: 125px 0px 125px 0px;
+    height: 100vh;
+    // padding: 0 25px 0 25px;
+  }
+  &__group {
+     padding: 0 25px 0 25px;
+     width: 100%;
+  }
+  &__title {
+    color: white;
+  }
+  &__info {
+    font-size: 16px;
+    margin: 15px 0 15px 0;
+  }
+  &__button {
+    margin-top: 25px !important;
+  }
+}
