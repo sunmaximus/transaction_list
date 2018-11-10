@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Icon, Menu, Table } from 'semantic-ui-react'
 import _ from 'lodash';
+
+import Filter from '../Filter';
+import './transaction.scss';
 
 class Transactions extends Component {
   constructor(props) {
@@ -11,7 +14,8 @@ class Transactions extends Component {
       prevPage: 0,
       currentPage: 25,
       nextPage: 50,
-      filter: 'default'
+      filterAccountName: [],
+      filterTransactionType: [],
     }
     this.showPreviousPage = this.showPreviousPage.bind(this);
     this.showNextPage = this.showNextPage.bind(this);
@@ -41,14 +45,34 @@ class Transactions extends Component {
     }))
   }
 
-  renderTransactions() {
-    const { prevPage, currentPage, filter } = this.state;
+  filterAccountName(accountName) {
+    return this.setState(prevState => {
+      return {
+        filterAccountName:
+          prevState.filterAccountName.includes(accountName) ?
+            prevState.filterAccountName.filter(account => account !== accountName) :
+            [...prevState.filterAccountName, accountName],
+    }})
+  }
 
-    let transactions = 
-      filter === 'default' ?
-        this.props.transactions :  
-        _.sortBy(this.props.transactions, (customer) => customer[filter]);
-      
+  filterTransaction(transactionType) {
+    return this.setState(prevState => {
+      return {
+        filterTransactionType:
+          prevState.filterTransactionType.includes(transactionType) ?
+            prevState.filterTransactionType.filter(account => account !== transactionType) :
+            [...prevState.filterTransactionType, transactionType],
+    }})
+  }
+
+
+  renderTransactions() {
+    const { prevPage, currentPage, filterAccountName, filterTransactionType } = this.state;
+
+    let transactions = this.props.transactions
+      .filter(customer => filterAccountName.length > 0 ? filterAccountName.includes(customer.accountName.toLowerCase()) : true)
+      .filter(customer => filterTransactionType.length > 0 ? filterTransactionType.includes(customer.transactionType.toLowerCase()) : true)
+
     // Account No. | Account Name | Currency | Amount | Transaction Type
     return transactions.slice(prevPage, currentPage).map((customer, index) => {
       return (
@@ -56,7 +80,7 @@ class Transactions extends Component {
           {/* <Table.Cell>{prevPage + index}</Table.Cell> */}
           <Table.Cell>{customer.account}</Table.Cell>
           <Table.Cell>{`${customer.accountName}`}</Table.Cell>
-          <Table.Cell>{customer.currencyCode}</Table.Cell>
+          <Table.Cell>{customer.currencySymbol}</Table.Cell>
           <Table.Cell>{customer.amount}</Table.Cell>
           <Table.Cell>{customer.transactionType}</Table.Cell>
         </Table.Row>)
@@ -66,37 +90,54 @@ class Transactions extends Component {
   // Account No. | Account Name | Currency | Amount | Transaction Type
   render() {
     return (
-      <Table celled>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Account No.</Table.HeaderCell>
-            <Table.HeaderCell>Account Name</Table.HeaderCell>
-            <Table.HeaderCell>Currency</Table.HeaderCell>
-            <Table.HeaderCell>Amount</Table.HeaderCell>
-            <Table.HeaderCell>Transaction Type</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-  
-        <Table.Body>
-          {this.renderTransactions()}
-        </Table.Body>
-  
-        <Table.Footer>
-          <Table.Row>
-            <Table.HeaderCell colSpan='5'>
-              <Menu floated='right' pagination>
-                <Menu.Item as='a' icon onClick={this.showPreviousPage}>
-                  <Icon name='chevron left' />
-                </Menu.Item>
-                <Menu.Item as='a'>{this.state.page}</Menu.Item>
-                <Menu.Item as='a' icon onClick={this.showNextPage}>
-                  <Icon name='chevron right' />
-                </Menu.Item>
-              </Menu>
-            </Table.HeaderCell>
-          </Table.Row>
-      </Table.Footer>
-    </Table>);    
+      <div className='transaction__container'>
+        
+        <div className='transaction__menu'>
+          <Filter
+            filterAccountName={this.filterAccountName.bind(this)}
+            filterTransaction={this.filterTransaction.bind(this)}
+          />
+        </div>
+
+        <div className='transaction__main'>
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Account No.</Table.HeaderCell>
+                <Table.HeaderCell>Account Name</Table.HeaderCell>
+                <Table.HeaderCell>Currency</Table.HeaderCell>
+                <Table.HeaderCell>Amount</Table.HeaderCell>
+                <Table.HeaderCell>Transaction Type</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+      
+            <Table.Body>
+              {this.renderTransactions()}
+            </Table.Body>
+        
+            <Table.Footer>
+              <Table.Row>
+                <Table.HeaderCell colSpan='5'>
+                  <Menu floated='right' pagination>
+                    <Menu.Item as='a' icon onClick={this.showPreviousPage}>
+                      <Icon name='chevron left' />
+                    </Menu.Item>
+                    <Menu.Item as='a'>{this.state.page}</Menu.Item>
+                    <Menu.Item as='a' icon onClick={this.showNextPage}>
+                      <Icon name='chevron right' />
+                    </Menu.Item>
+                  </Menu>
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Footer>
+          </Table> 
+        </div>
+       
+
+
+       
+      </div>
+);    
   }
 }
 

@@ -6,18 +6,4 @@
     flex-direction: row;
     margin: 125px 0 125px 0;
   }
-
-  &__filter-section {
-    flex: 4;
-    display: flex;
-  }
-
-  &__transactions-section {
-    flex: 16;
-    background: lightblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 20px 20px 20px;
-  }
 }

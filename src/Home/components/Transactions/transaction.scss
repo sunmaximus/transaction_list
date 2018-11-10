@@ -1,0 +1,21 @@
+.transaction {
+  &__menu {
+    grid-area: menu;
+    padding-top: 15px;
+  }
+
+  &__main {
+    grid-area: main,;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-areas:
+      'header header header header header header'
+      'menu main main main main main'
+      'menu footer footer footer footer footer';
+    grid-gap: 20px;
+    padding: 20px;
+    width: 100%;
+  }
+}

@@ -4,13 +4,10 @@ import PropTypes from 'prop-types';
 import NavBar from '../share/components/NavBar';
 
 import Loader from '../share/components/Loader';
-
-import Filter from './components/Filter';
 import Transaction from './components/Transactions';
 import { getFinancialData } from '../share/module/getFinancialData';
 
 import './home.scss';
-
 class Home extends Component {
   componentDidMount() {
     const { financialData, getFinancialData } = this.props;
@@ -19,24 +16,15 @@ class Home extends Component {
 
   render() {
     const { financialData } = this.props;
-    console.log(financialData.transactions.length)
 
     if(financialData.loading) return <Loader />
-    // Filter |     Account No. | Account Name | Currency | Amount | Transaction Type
     return (
       <div>
         <NavBar hasBackground={false} />
         <div className='home__container'>
-          <div className='home__filter-section'>
-            <Filter
-            
-            />
-          </div>
-          <div className='home__transactions-section'>
-            <Transaction
-              transactions={financialData.transactions}
-            />
-          </div>
+          <Transaction
+            transactions={financialData.transactions}
+          />
         </div>        
       </div>
 
