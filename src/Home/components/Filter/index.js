@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Header, Checkbox } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Header, Checkbox } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 import './filter.scss';
 
@@ -59,6 +60,11 @@ class Filter extends Component {
       </div>
     );
   }
+}
+
+Filter.propTypes = {
+  filterAccountName: PropTypes.func.isRequired,
+  filterTransaction: PropTypes.func.isRequired
 }
 
 export default Filter;

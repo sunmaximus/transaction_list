@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import { Icon, Menu, Table } from 'semantic-ui-react'
-import _ from 'lodash';
-
+import { Icon, Menu, Table } from 'semantic-ui-react';
 import Filter from '../Filter';
 import './transaction.scss';
 
@@ -135,13 +134,13 @@ class Transactions extends Component {
             </Table.Footer>
           </Table> 
         </div>
-       
-
-
-       
       </div>
-);    
+    );    
   }
+}
+
+Transactions.propTypes = {
+  transactions: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default Transactions;
