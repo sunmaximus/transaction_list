@@ -2,7 +2,7 @@
   "name": "transaction_list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sunmaximus.github.io/transaction_list/",
+  "homepage": "https://sunmaximus.github.io/transaction_list",
   "dependencies": {
     "axios": "^0.18.0",
     "gh-pages": "^2.0.1",
