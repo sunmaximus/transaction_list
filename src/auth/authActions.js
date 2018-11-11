@@ -22,7 +22,7 @@ export function logout(callBack) {
 
 export function login(data, callBack) {
   return dispatch => {
-    return axios.post('http://localhost:5000/api/login', data)
+    return axios.post('https://auth-snguyen.herokuapp.com/api/login', data)
       .then(res => {
         const token = res.data.token;
         localStorage.setItem('jwtToken', token);

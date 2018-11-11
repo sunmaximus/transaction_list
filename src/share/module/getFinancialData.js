@@ -9,7 +9,7 @@ export const getFinancialData = (dispatch) => {
   dispatch && dispatch({ type: FETCH_FINANCIAL_DATA });
   return dispatch => {
     let token = localStorage.jwtToken
-    axios.get('http://localhost:5000/api/get/data', { token })
+    axios.get('https://auth-snguyen.herokuapp.com/api/get/data', { token })
       .then(response => {
         dispatch({ type: FETCH_FINANCIAL_DATA_RECEIVED, transactions: response.data.transactions })
       })
