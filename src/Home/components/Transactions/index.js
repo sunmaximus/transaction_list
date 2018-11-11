@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { Icon, Menu, Table } from 'semantic-ui-react';
+import { Icon, Menu, Table, Header } from 'semantic-ui-react';
 import Filter from '../Filter';
 import './transaction.scss';
 
@@ -93,7 +93,7 @@ class Transactions extends Component {
   render() {
     return (
       <div className='transaction__container'>
-        
+        <Header lcassName='transaction__header' as='h1'>My Transactions</Header>
         <div className='transaction__menu'>
           <Filter
             filterAccountName={this.filterAccountName.bind(this)}

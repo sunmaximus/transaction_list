@@ -8,6 +8,10 @@
     grid-area: main,;
   }
 
+  &__header {
+    grid-area: header;
+  }
+
   &__container {
     display: grid;
     grid-template-areas:
@@ -15,7 +19,7 @@
       'menu main main main main main'
       'menu footer footer footer footer footer';
     grid-gap: 20px;
-    padding: 20px;
+    padding: 0 20px 0 20px;
     width: 100%;
   }
 }
