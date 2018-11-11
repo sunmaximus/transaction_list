@@ -2,7 +2,7 @@
   "name": "transaction_list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sunmaximus.github.io/transaction_list",
+  "main": "./src/index.js",
   "dependencies": {
     "axios": "^0.18.0",
     "jwt-decode": "^2.2.0",
