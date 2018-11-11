@@ -51,5 +51,17 @@ $ npm install
 $ npm run start
 ```
 
+
+## Login
+
+```bash
+username: admin
+
+```
+
+```bash
+password: 1234567
+```
+
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
