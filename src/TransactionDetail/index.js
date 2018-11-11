@@ -25,7 +25,7 @@ class TransactionDetail extends Component {
       <div className='transaction-detail__container'>
         <NavBar background={false} />
         <div className='transaction-detail__group'>
-          <Header as='h1'>{this.props.match.params.account}</Header>
+          <Header as='h1'>Transaction {this.props.match.params.account}</Header>
           <Divider />
           <div className='transaction-detail__info'><strong>Account No.:</strong> {transaction.account}</div>
           <div className='transaction-detail__info'><strong>Account Name:</strong> {transaction.accountName}</div>
