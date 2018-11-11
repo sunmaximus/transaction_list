@@ -8,9 +8,9 @@
   "runtime~main.js": "/transaction_list/static/js/runtime~main.1b6515d0.js",
   "runtime~main.js.map": "/transaction_list/static/js/runtime~main.1b6515d0.js.map",
   "static/media/semantic.min.css": "/transaction_list/static/media/brand-icons.a1a749e8.svg",
-  "static/css/1.e43c8f63.chunk.css.map": "/transaction_list/static/css/1.e43c8f63.chunk.css.map",
   "static/css/main.e5bae4cd.chunk.css.map": "/transaction_list/static/css/main.e5bae4cd.chunk.css.map",
+  "static/css/1.e43c8f63.chunk.css.map": "/transaction_list/static/css/1.e43c8f63.chunk.css.map",
   "index.html": "/transaction_list/index.html",
-  "precache-manifest.dd7754ae604e651c417cdc4aa2cdf081.js": "/transaction_list/precache-manifest.dd7754ae604e651c417cdc4aa2cdf081.js",
+  "precache-manifest.8c187a5c4f94ec6ac7d1e1f6874594ff.js": "/transaction_list/precache-manifest.8c187a5c4f94ec6ac7d1e1f6874594ff.js",
   "service-worker.js": "/transaction_list/service-worker.js"
 }
